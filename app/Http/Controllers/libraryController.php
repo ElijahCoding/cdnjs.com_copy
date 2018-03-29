@@ -7,7 +7,6 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Services\Libraries;
 use App\Services\Cache\RedisAdapter;
-use App\Transformers\LibraryTransformer;
 
 class libraryController extends Controller
 {
