@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Cache;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Services\Libraries;
@@ -19,7 +20,6 @@ class libraryController extends Controller
     public function index()
     {
       $data = (new Libraries($this->client))->get();
-
 
       return $data;
     }
