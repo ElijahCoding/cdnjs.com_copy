@@ -21,6 +21,7 @@ class libraryController extends Controller
     {
       $data = (new Libraries($this->client))->get();
 
+
       return $data;
     }
 }
