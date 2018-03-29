@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Cache;
+namespace App\Services\Cache;
 
 use Predis\Client as Predis;
 
@@ -32,5 +32,5 @@ class RedisAdapter
     $this->put($key, $value = $callback(), $minutes);
     return $value;
   }
-  
+
 }
