@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Services\Libraries;
 use App\Services\Cache\RedisAdapter;
 
-class libraryController extends Controller
+class LibraryController extends Controller
 {
     protected $client;
     protected $cache;
