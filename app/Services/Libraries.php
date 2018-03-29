@@ -10,7 +10,7 @@ class Libraries extends ServiceAbstract
   {
     $response = $this->client->request('GET', 'https://api.cdnjs.com/libraries');
 
-    $libraries = json_decode($response->getBody());
+    $libraries = json_decode($response->getBody())->results;
 
     return $libraries;
   }
