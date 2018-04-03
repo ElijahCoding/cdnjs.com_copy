@@ -60,6 +60,6 @@ class DBSeedingCommand extends Command
       }
       $bar->finish();
 
-      $this->info('Done !');
+      $this->info("\nDone !");
     }
 }
