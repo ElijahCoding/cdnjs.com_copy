@@ -4,11 +4,12 @@
              api-key="6c4c9e56624257bd24ac5782a3057da5"
              index-name="libraries"
              >
-             <div class="form-group">
-               <ais-input placeholder="Search libraries..." type="input" class="form-control"></ais-input>
+             <div class="form-group" @keydown="convert()">
+               <ais-input :placeholder="librariesSum" type="input" class="form-control"></ais-input>
              </div>
 
-             <ais-results>
+             <ais-results v-if="typing">
+
                <template slot-scope="{ result }">
                     <div class="form-group">
                       <div class="card form-control">
@@ -26,9 +27,8 @@
 
                      </div>
                     </div>
-
-
 	                </template>
+
              </ais-results>
            </ais-index>
 
@@ -39,14 +39,29 @@
    export default {
      data () {
        return {
-         libraries: []
+         typing: false,
+         libraries: [],
+
        }
      },
 
-     mounted () {
-       axios.get('http://cdnjsapi.test/api/libraries').then((response) => {
+     methods: {
+       convert() {
+         this.typing = true
+       }
+     },
+
+     mounted() {
+       axios.get('http://127.0.0.1:8000/api/libraries').then((response) => {
          this.libraries = response.data
        })
-     }
+     },
+
+     computed: {
+       librariesSum() {
+         return `Search from ${ this.libraries.length } libraries`
+       }
+     },
+
    }
 </script>

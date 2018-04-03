@@ -5,4 +5,4 @@ Route::get('/', function () {
 });
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/quick_search', 'HomeController@index')->name('search.quick');

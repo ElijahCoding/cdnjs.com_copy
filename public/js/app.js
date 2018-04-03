@@ -47305,16 +47305,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      typing: false,
       libraries: []
+
     };
   },
+
+
+  methods: {
+    convert: function convert() {
+      this.typing = true;
+    }
+  },
+
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('http://cdnjsapi.test/api/libraries').then(function (response) {
+    axios.get('http://127.0.0.1:8000/api/libraries').then(function (response) {
       _this.libraries = response.data;
     });
+  },
+
+
+  computed: {
+    librariesSum: function librariesSum() {
+      return 'Search from ' + this.libraries.length + ' libraries';
+    }
   }
+
 });
 
 /***/ }),
@@ -47337,47 +47355,58 @@ var render = function() {
     [
       _c(
         "div",
-        { staticClass: "form-group" },
+        {
+          staticClass: "form-group",
+          on: {
+            keydown: function($event) {
+              _vm.convert()
+            }
+          }
+        },
         [
           _c("ais-input", {
             staticClass: "form-control",
-            attrs: { placeholder: "Search libraries...", type: "input" }
+            attrs: { placeholder: _vm.librariesSum, type: "input" }
           })
         ],
         1
       ),
       _vm._v(" "),
-      _c("ais-results", {
-        scopedSlots: _vm._u([
-          {
-            key: "default",
-            fn: function(ref) {
-              var result = ref.result
-              return [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("div", { staticClass: "card form-control" }, [
-                    _c("div", { staticClass: "card-heading" }, [
-                      _c(
-                        "a",
-                        { attrs: { target: "_blank", href: result.latest } },
-                        [
-                          _c("h4", { staticClass: "float-left" }, [
-                            _vm._v(
-                              "\n                                 " +
-                                _vm._s(result.name) +
-                                "\n                               "
-                            )
-                          ])
-                        ]
-                      )
+      _vm.typing
+        ? _c("ais-results", {
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function(ref) {
+                  var result = ref.result
+                  return [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("div", { staticClass: "card form-control" }, [
+                        _c("div", { staticClass: "card-heading" }, [
+                          _c(
+                            "a",
+                            {
+                              attrs: { target: "_blank", href: result.latest }
+                            },
+                            [
+                              _c("h4", { staticClass: "float-left" }, [
+                                _vm._v(
+                                  "\n                                 " +
+                                    _vm._s(result.name) +
+                                    "\n                               "
+                                )
+                              ])
+                            ]
+                          )
+                        ])
+                      ])
                     ])
-                  ])
-                ])
-              ]
-            }
-          }
-        ])
-      })
+                  ]
+                }
+              }
+            ])
+          })
+        : _vm._e()
     ],
     1
   )
