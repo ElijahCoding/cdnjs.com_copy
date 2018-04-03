@@ -47286,6 +47286,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -47311,40 +47326,58 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
+    "ais-index",
+    {
+      attrs: {
+        "app-id": "F5573XIZ75",
+        "api-key": "6c4c9e56624257bd24ac5782a3057da5",
+        "index-name": "libraries"
+      }
+    },
     [
       _c(
-        "ais-index",
-        {
-          attrs: {
-            "app-id": "F5573XIZ75",
-            "api-key": "6c4c9e56624257bd24ac5782a3057da5",
-            "index-name": "libraries"
-          }
-        },
+        "div",
+        { staticClass: "form-group" },
         [
-          _c("ais-input", { attrs: { placeholder: "Search libraries..." } }),
-          _vm._v(" "),
-          _c("ais-results", {
-            scopedSlots: _vm._u([
-              {
-                key: "default",
-                fn: function(ref) {
-                  var result = ref.result
-                  return [
-                    _c("div", [
-                      _c("h1", [_vm._v("@" + _vm._s(result.name))]),
-                      _vm._v(" "),
-                      _c("h4", [_vm._v("@" + _vm._s(result.latest))])
-                    ])
-                  ]
-                }
-              }
-            ])
+          _c("ais-input", {
+            staticClass: "form-control",
+            attrs: { placeholder: "Search libraries...", type: "input" }
           })
         ],
         1
-      )
+      ),
+      _vm._v(" "),
+      _c("ais-results", {
+        scopedSlots: _vm._u([
+          {
+            key: "default",
+            fn: function(ref) {
+              var result = ref.result
+              return [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("div", { staticClass: "card form-control" }, [
+                    _c("div", { staticClass: "card-heading" }, [
+                      _c(
+                        "a",
+                        { attrs: { target: "_blank", href: result.latest } },
+                        [
+                          _c("h4", { staticClass: "float-left" }, [
+                            _vm._v(
+                              "\n                                 " +
+                                _vm._s(result.name) +
+                                "\n                               "
+                            )
+                          ])
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ]
+            }
+          }
+        ])
+      })
     ],
     1
   )

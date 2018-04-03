@@ -1,22 +1,37 @@
 <template>
-  <div>
-    <ais-index app-id="F5573XIZ75"
+
+      <ais-index app-id="F5573XIZ75"
              api-key="6c4c9e56624257bd24ac5782a3057da5"
              index-name="libraries"
              >
-
-             <ais-input placeholder="Search libraries..."></ais-input>
+             <div class="form-group">
+               <ais-input placeholder="Search libraries..." type="input" class="form-control"></ais-input>
+             </div>
 
              <ais-results>
-               <template scope="{ result }">
-            		   <div>
-            			   <h1>@{{ result.name }}</h1>
-            			   <h4>@{{ result.latest }}</h4>
-            		   </div>
+               <template slot-scope="{ result }">
+                    <div class="form-group">
+                      <div class="card form-control">
+
+                         <div class="card-heading">
+
+                             <a target="_blank" :href="result.latest">
+                               <h4 class="float-left">
+                                 {{ result.name }}
+                               </h4>
+
+                             </a>
+
+                         </div>
+
+                     </div>
+                    </div>
+
+
 	                </template>
              </ais-results>
-  </ais-index>
-  </div>
+           </ais-index>
+
 
 </template>
 
