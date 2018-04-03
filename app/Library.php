@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Library extends Model
 {
     use Searchable;
+
+    protected $guarded = [];
 }
