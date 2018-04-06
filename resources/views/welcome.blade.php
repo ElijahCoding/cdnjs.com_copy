@@ -26,7 +26,7 @@
           </div>
 
           <div class="col-md-6" style="margin-top: 30%">
-            <button class="btn btn-primary btn-lg" href="#">Advanced Search</button>
+            <a class="btn btn-primary btn-lg" href="{{ route('search.advance') }}">Advanced Search</a>
           </div>
 
         </div>
