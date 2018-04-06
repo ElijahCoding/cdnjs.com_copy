@@ -21,7 +21,7 @@
       <div class="container">
 
         <div class="row">
-          <div class="col-md-6" style="margin-top: 30%">
+          <div class="col-md-6" style="margin-top: 30%;">
             <a class="btn btn-primary btn-lg" href="{{ route('search.quick') }}">Quick Search</a>
           </div>
 

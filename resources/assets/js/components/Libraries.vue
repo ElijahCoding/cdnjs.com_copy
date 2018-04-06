@@ -16,13 +16,16 @@
 
                          <div class="card-heading">
 
-                             <a target="_blank" :href="result.latest">
-                               <h4 class="float-left">
-                                 {{ result.name }}
-                               </h4>
-
-                             </a>
-
+                           <dl class="row">
+                             <dt class="col-sm-3">
+                               <a target="_blank" :href="result.latest">
+                                 <h5 class="float-left">
+                                   {{ result.name }}
+                                 </h5>
+                               </a>
+                             </dt>
+                             <dd class="col-sm-6" ref="text">{{ result.latest }}</dd>
+                          </dl>
                          </div>
 
                      </div>
@@ -48,7 +51,12 @@
      methods: {
        convert() {
          this.typing = true
-       }
+       },
+
+        copy () {
+          this.$refs.text.select();
+          document.execCommand('copy')
+        }
      },
 
      mounted() {

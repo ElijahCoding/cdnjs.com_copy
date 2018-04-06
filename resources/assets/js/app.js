@@ -10,7 +10,9 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import InstantSearch from 'vue-instantsearch';
+import VueClipboard from 'vue-clipboard2'
 Vue.use(InstantSearch);
+Vue.use(VueClipboard);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
